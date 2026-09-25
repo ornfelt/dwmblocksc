@@ -1,0 +1,5 @@
+dwmblocksc
+dwmblocksc-debug
+test.d/
+*.o
+/blocks.h
