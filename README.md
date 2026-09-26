@@ -24,10 +24,10 @@ SIGRTMIN+n with the button as the `sigqueue` value), and the same
     sudo make install       # /usr/local/bin/dwmblocksc and the man page
     make install-config     # copy the shipped config/blocks.h to ~/.config/dwmblocksc/blocks.h
 
-What dwmblocks' `compile.sh` did at build time, using the `sb-internet` block
-instead of `sb-battery` when there is no `/sys/class/power_supply/BAT*`,
-dwmblocksc does at startup (the `battery` field below), so one blocks.h works
-on every machine and a plain `make && sudo make install` is enough.
+What dwmblocks' `compile.sh` did at build time, leaving out `sb-battery` when
+there is no `/sys/class/power_supply/BAT*`, dwmblocksc does at startup (the
+`battery` field below), so one blocks.h works on every machine and a plain
+`make && sudo make install` is enough.
 
 ## Running
 

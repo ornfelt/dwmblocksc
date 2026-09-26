@@ -36,7 +36,7 @@
 #define MIN(A, B)               ((A) < (B) ? (A) : (B))
 #define STATUSLENGTH (LENGTH(blocks) * CMDLENGTH + 1)
 
-/* Block.battery: compile.sh's sb-battery/sb-internet swap, decided at startup */
+/* Block.battery: like compile.sh's sb-battery swap, decided at startup */
 enum { AnyBattery, HasBattery, NoBattery }; /* always, only with, only without a battery */
 
 typedef struct {

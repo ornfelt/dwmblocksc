@@ -52,8 +52,8 @@ install: all
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwmblocksc.1
 
 # copy the shipped blocks to ~/.config/dwmblocksc unless some are already
-# there; dwmblocksc itself picks sb-battery or sb-internet at startup (the
-# blocks' battery field), which dwmblocks' compile.sh did at build time
+# there; dwmblocksc itself leaves out sb-battery without a battery at startup
+# (the blocks' battery field), which dwmblocks' compile.sh did at build time
 install-config:
 	mkdir -p ${CONFDIR}
 	[ -e ${CONFDIR}/blocks.h ] || cp config/blocks.h ${CONFDIR}/blocks.h
