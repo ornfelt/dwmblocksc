@@ -163,9 +163,9 @@ selected(const char *suffix)
 static void
 icons_match_blocks_h(void)
 {
-	assert(!strcmp(blocks[2].icon, "^2^\xef\x83\x82  "));
-	assert(!strcmp(blocks[3].icon, "^3^ \xef\x8b\x88 "));
-	assert(!strcmp(blocks[7].icon, "^6^ \xef\x80\x97 "));
+	assert(!strcmp(blocks[5].icon, "^2^\xef\x83\x82  "));
+	assert(!strcmp(blocks[6].icon, "^3^ \xef\x8b\x88 "));
+	assert(!strcmp(blocks[10].icon, "^6^ \xef\x80\x97 "));
 }
 
 /* compile.sh: sb-battery with a battery, sb-internet without one. */
@@ -173,10 +173,10 @@ static void
 battery_blocks(void)
 {
 	selectblocks(1);
-	assert(nblocks == 7);
+	assert(nblocks == 10);
 	assert(selected("sb-battery") && !selected("sb-internet"));
 	selectblocks(0);
-	assert(nblocks == 7);
+	assert(nblocks == 10);
 	assert(selected("sb-internet") && !selected("sb-battery"));
 }
 
