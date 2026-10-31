@@ -159,13 +159,13 @@ selected(const char *suffix)
 	return 0;
 }
 
-/* The icons are the Nerd Font glyphs of blocks.h, byte for byte. */
+/* No block has an icon of its own: the scripts print theirs (sb-theme),
+ * like blocks.h. */
 static void
 icons_match_blocks_h(void)
 {
-	assert(!strcmp(blocks[6].icon, "^2^\xef\x83\x82 "));
-	assert(!strcmp(blocks[7].icon, "^3^ \xef\x8b\x88 "));
-	assert(!strcmp(blocks[10].icon, "^6^ \xef\x80\x97 "));
+	for (unsigned int i = 0; i < LENGTH(blocks); i++)
+		assert(blocks[i].icon[0] == '\0');
 }
 
 /* sb-battery only with a battery; the network block either way. */
