@@ -7,7 +7,7 @@ argument-hint: "[empty means every remaining commit within the run budget, or: s
 
 # Sync dwmblocks commits into dwmblocksc
 
-dwmblocksc (`~/Code2/C/dwmblocksc`, branch `master`, remote `origin` =
+dwmblocksc (`~/Code2/C/dwmblocksc`, branch `main`, remote `origin` =
 `https://github.com/ornfelt/dwmblocksc`) is the C port of dwmblocksr, which is itself the Rust port
 of the user's dwmblocks fork. The **source** of this sync is that dwmblocks, and dwmblocksr is the
 **specification** dwmblocksc follows:
@@ -83,8 +83,8 @@ git -C ~/Code2/Rust/dwmblocksr status --short                     # report if di
 ```
 
 Only **committed** history counts, in both `~/.config/dwmblocks` (local `master`) and dwmblocksr
-(local `master`). dwmblocksr's ledger is read from its commit:
-`git -C ~/Code2/Rust/dwmblocksr show master:UPSTREAM_SYNC.md`. If dwmblocksr has no ledger yet,
+(local `main`). dwmblocksr's ledger is read from its commit:
+`git -C ~/Code2/Rust/dwmblocksr show main:UPSTREAM_SYNC.md`. If dwmblocksr has no ledger yet,
 every row here waits on dwmblocksr: say so and suggest running `/dwmblocksr-upstream-sync` in
 `~/Code2/Rust/dwmblocksr` first.
 
@@ -183,7 +183,7 @@ Rules for the ledger:
 - The `Notes` column says which dwmblocksc functions changed, what was translated differently from
   the dwmblocksr commit and why, what went into `blocks.def.h`, `config/blocks.h` and the user's
   blocks, and `flagged` when the row has an entry under "Flagged".
-- If the ledger disagrees with dwmblocksc's `master`, **the tree wins** and the rows concerned are
+- If the ledger disagrees with dwmblocksc's `main`, **the tree wins** and the rows concerned are
   rebuilt per "Picking up the current state" in the same run.
 
 ### upstream_info.txt
@@ -203,7 +203,7 @@ of dwmblocksr's.
 
 For each dwmblocks commit after the baseline, in ledger order:
 
-1. **An earlier sync**: `git log --format='%h %s' --grep="^dwmblocks-commit: <full sha>" master`
+1. **An earlier sync**: `git log --format='%h %s' --grep="^dwmblocks-commit: <full sha>" main`
    finds the dwmblocksc commit that carries it (fall back to the subject with the name swaps of
    section 5). Found: `ported`, `adapted` or `partial` as dwmblocksr's row (or as the dwmblocksc
    diff shows), naming it.
@@ -346,7 +346,7 @@ instead. No attribution trailer.
 
 ### Replay
 
-`replay <dwmblocks-commit>` never rewrites a commit already in `master`. For a ported commit, the
+`replay <dwmblocks-commit>` never rewrites a commit already in `main`. For a ported commit, the
 correction - the rest of a `partial` port, a wrong translation, catching up with a dwmblocksr
 replay (a dwmblocksr follow-up commit carrying the same `dwmblocks-commit:` trailer) - is a new
 dwmblocksc commit on top, named after the dwmblocksr follow-up when there is one, or for what it
@@ -356,7 +356,7 @@ updated in place. For a commit not ported yet (`asked`, `skipped`), replay ports
 section.
 
 To find dwmblocksr follow-ups dwmblocksc has not caught up with:
-`git -C ~/Code2/Rust/dwmblocksr log --format='%h %s' --grep='^dwmblocks-commit: ' master` lists
+`git -C ~/Code2/Rust/dwmblocksr log --format='%h %s' --grep='^dwmblocks-commit: ' main` lists
 every dwmblocksr sync commit; one whose sha is not in any dwmblocksc `dwmblocksr-commit:` trailer
 is missing here.
 
